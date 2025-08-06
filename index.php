@@ -21,13 +21,37 @@ foreach ($presencasQuery as $p) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Agenda da Bandinha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandinha</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f2f4;
+        :root {
+            --rosa: #ffe6ea;
+            --vermelho: #e74c3c;
+            --verde: #2ecc71;
+            --cinza: #ccc;
+            --texto: #333;
+        }
+        * {
             margin: 0;
-            padding: 0 15px 80px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, var(--rosa), #fff);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #d6336c;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         h2 {
             text-align: center;
@@ -35,8 +59,8 @@ foreach ($presencasQuery as $p) {
             color: #222;
         }
         .agenda {
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 10px auto;
             background: white;
             border-radius: 10px;
             padding: 15px;
@@ -50,9 +74,27 @@ foreach ($presencasQuery as $p) {
         .agenda li:last-child {
             border-bottom: none;
         }
+        .linha-compromisso {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #ccc;
+            padding: 8px 0;
+        }
+
+        .info-compromisso {
+            flex: 1;
+        }
+
+        .hora-compromisso {
+            white-space: nowrap;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #444;
+        }
         .casais {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 20px auto;
             background: white;
             border-radius: 10px;
             padding: 15px;
@@ -65,7 +107,7 @@ foreach ($presencasQuery as $p) {
             flex-wrap: wrap;
         }
         .casais .nome {
-            flex: 1 0 200px;
+            flex: 1 0 100px;
         }
         .pontinhos {
             display: flex;
@@ -106,12 +148,21 @@ foreach ($presencasQuery as $p) {
 </head>
 <body>
 
+<header>
+    <h1>Agenda Bandinha <br> RCC 2025</h1>
+</header>
+
 <h2>Próximos Compromissos</h2>
 <ul class="agenda">
 <?php foreach ($ensaios as $e): ?>
-    <li>
-        <?= $e['concluido'] ? "✅ " : "" ?>
-        <?= date("d/m", strtotime($e['data'])) ?> - <?= $e['descricao'] ?> – <?= substr($e['hora'], 0, 5) ?>
+    <li class="linha-compromisso">
+        <div class="info-compromisso">
+            <?= $e['concluido'] ? "✅ " : "" ?>
+            <?= date("d/m", strtotime($e['data'])) ?> - <?= $e['descricao'] ?> - <?= $e['local'] ?>
+        </div>
+        <div class="hora-compromisso">
+            🕘<?= substr($e['hora'], 0, 5) ?>
+        </div>
     </li>
 <?php endforeach; ?>
 </ul>
@@ -141,13 +192,6 @@ foreach ($presencasQuery as $p) {
 <?php endforeach; ?>
 </div>
 
-<footer>
-  <nav class="footer-links">
-    <a href="https://www.instagram.com/rcc_acailandia_/" target="_blank">📷 Instagram</a>
-    <a href="https://sergio-slima.github.io/page-links/" target="_blank">💻 Desenvolvido por DEVAPP</a>
-    <a href="login.php">🔐 Área Administrativa</a>
-  </nav>
-</footer>
-
+<?php include 'footer.html'; ?>
 </body>
 </html>

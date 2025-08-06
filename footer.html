@@ -1,0 +1,82 @@
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h3>Bandinha RCC Açailândia</h3>
+      <p>Agenda e presença dos Encontros da Bandinha. Projeto dedicado à organização, compromisso e unidade do grupo.</p>
+    </div>
+    <div class="footer-section links">
+      <h4>Links Úteis</h4>
+      <ul>
+        <li><a href="login.php">🔐 Área Administrativa</a></li>
+        <li><a href="https://www.instagram.com/rcc_acailandia_/" target="_blank">📷 Instagram Oficial</a></li>
+        <li><a href="https://www.rccacailandia.com.br/" target="_blank">💻 Site de Inscrição</a></li>
+      </ul>
+    </div>
+    <div class="footer-section contato">
+      <h4>Contato</h4>
+      <p>Email: contato@rccacailandia.com.br</p>
+      <p>WhatsApp: (99) 99156-8120</p>
+      <p>WhatsApp: (99) 99141-8730</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <?php echo date("Y"); ?> RCC Acailandia - Todos os direitos reservados. Desenvolvido com ❤️ por <a href="https://sergio-slima.github.io/page-links/" target="_blank">DEVAPP</a></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #111;
+    color: #eee;
+    padding: 40px 20px 20px;
+    font-size: 14px;
+  }
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  .footer-section {
+    flex: 1 1 10px;
+  }
+  .footer-section h3, .footer-section h4 {
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  .footer-section p, .footer-section li, .footer-section a {
+    color: #ccc;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #999;
+  }
+  .footer-bottom a {
+    color: #ccc;
+  }
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  }
+</style>

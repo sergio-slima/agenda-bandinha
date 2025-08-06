@@ -92,6 +92,7 @@ $agenda = [
             text-align: center;
             font-size: 2rem;
             color: #d6336c;
+            margin-top: 1.5rem;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
